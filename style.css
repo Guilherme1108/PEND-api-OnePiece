@@ -3,3 +3,59 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #A5C9EA;
+    padding-left: 15px;
+    padding-right: 30px;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.options a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+main {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #F4EAD5;
+}
+
+input {
+    height: 60px;
+    width: 700px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2rem;
+    background-color: #FAD4D8;
+}
+
+footer {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 15px;
+    background-color: #E4DCCF;
+}
