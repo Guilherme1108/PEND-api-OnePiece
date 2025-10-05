@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,42 +12,107 @@ body {
 }
 
 header {
-    height: 5%;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #A5C9EA;
+}
+
+.trueHeader {
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #A5C9EA;
     padding-left: 15px;
     padding-right: 30px;
 }
 
-.options {
+.trueHeader h1{
+    font-size: 3rem;
+}
+
+.trueHeader .options {
     display: flex;
     align-items: center;
     gap: 25px;
 }
+
 .options a {
     text-decoration: none;
     font-size: 1.5rem;
     color: black;
 }
 
-main {
-    height: 90%;
+.button {
     width: 100%;
-    display: flex;
-    justify-content: center;
     background-color: #F4EAD5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
 }
 
-input {
+.button input {
     height: 60px;
     width: 700px;
     border-radius: 12px;
     text-align: center;
     font-size: 2rem;
     background-color: #FAD4D8;
+}
+
+main {
+    flex: 1; /* ocupa o espaço entre o header e footer */
+    overflow-y: auto; /* ativa o scroll vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: #F4EAD5;
+    gap: 1rem;
+}
+
+.cards-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.card {
+    height: 260px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    gap: 8px;
+    background-color: #FDF6EC;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* direita, baixo, blur, cor */
+}
+
+.card img {
+    height: 100px;
+    width: 100px;
+}
+
+.card .fruitOriginalName {
+    font-size: 1.5rem;
+}
+
+.card .fruitCommunName{
+    font-size: 1rem;
 }
 
 footer {
