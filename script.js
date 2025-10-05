@@ -25,8 +25,18 @@ function criarCards(cards) {
     fruitCommumName.classList.add('fruitCommunName')
 
     imgFruit.src = cards.filename
-    fruitOriginalName.textContent = cards.roman_name
-    fruitCommumName.textContent = cards.name
+    // Se a imagem não carregar vai colocar uma padrão
+    imgFruit.onerror = () => {
+        imgFruit.src = './img/imgNotFound.png';
+    };
+
+fruitOriginalName.textContent = cards.roman_name //verifica se existe
+                              && cards.roman_name.trim()!== ''  //verifica se não é só espaços em branco
+                              ? cards.roman_name : 'Nome desconhecido'; //se for vdd usa o roman name, se for falso usa o nome desconhecido
+
+fruitCommumName.textContent = cards.name
+                            && cards.name.trim() !== '' 
+                            ? cards.name : 'Nome comum não conhecido';
 
     divCard.append(imgFruit, fruitOriginalName, fruitCommumName)
 
@@ -35,15 +45,15 @@ function criarCards(cards) {
 
 // Função para carregar as frutas da API
 async function carregarCards() {
-        try {
-    const response = await fetch(API_URL)
-    const fruits = await response.json()
+    try {
+        const response = await fetch(API_URL) //faz uma requsição para a API
+        const fruits = await response.json() //converte o json paraa objeto
 
-        fruits.forEach(fruit => {
+        fruits.forEach(fruit => { //percorre a o objeto
             const card = criarCards(fruit)
-            cardsContainer.appendChild(card)
+            cardsContainer.appendChild(card) //adiciona o card dentro do container
         })
-            } catch (error) {
+    } catch (error) {
         console.error('Erro ao carregar frutas:', error)
     }
 }
