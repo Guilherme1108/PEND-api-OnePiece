@@ -121,7 +121,6 @@ input {
 }
 
 .list {
-    overflow-y: auto; /* ativa o scroll vertical */
     height: 80%;
     width: 60%;
     display: flex;
@@ -147,31 +146,26 @@ input {
 
 .listWithDados {
     width: 100%;
-    background-image: url(./img/background.webp); /*transforma imagem em background */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #FDF6EC;
+    overflow-y: auto; /* ativa o scroll vertical */
 }
-
 .rowTop100{
     width: 100%;
     display: flex;
     justify-content: space-between;
     border: solid 1px black;
     font-size: 2rem;
-    background-color: rgba(31, 76, 224, 0.247);
 }
 .numberMoreName{
     display: flex;
-    width: 86%;
+    text-align: start;
+    width: 80%;
     gap: 2rem;
     padding-left: 32px;
 }
 .bounty{
-    width: 24%;
+    width: 20%;
 }
-
-
 
 footer {
     height: 8%;

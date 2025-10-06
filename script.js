@@ -1,6 +1,6 @@
 'use strict'
 
-// URL da API
+// URL da API buscando frutas
 const API_URL = 'https://corsproxy.io/?url=https://api.api-onepiece.com/v2/fruits/en'
 
 // Seleciona o elemento main
