@@ -1,15 +1,15 @@
 'use strict'
 
 // URL da API
-const API_URL = 'https://api.api-onepiece.com/v2/fruits/en'
+const API_URL = 'https://corsproxy.io/?url=https://api.api-onepiece.com/v2/fruits/en'
 
 // Seleciona o elemento main
-const main = document.querySelector('main')
+const mainCatalog = document.getElementById('catalog')
 
 // Cria um container para os cards
 const cardsContainer = document.createElement('div')
 cardsContainer.classList.add('cards-container')
-main.appendChild(cardsContainer)
+mainCatalog.appendChild(cardsContainer)
 
 //Criando os cards
 function criarCards(cards) {
@@ -24,19 +24,19 @@ function criarCards(cards) {
     fruitOriginalName.classList.add('fruitOriginalName')
     fruitCommumName.classList.add('fruitCommunName')
 
-    imgFruit.src = cards.filename
+        imgFruit.src = cards.filename
     // Se a imagem não carregar vai colocar uma padrão
     imgFruit.onerror = () => {
         imgFruit.src = './img/imgNotFound.png';
     };
 
-fruitOriginalName.textContent = cards.roman_name //verifica se existe
-                              && cards.roman_name.trim()!== ''  //verifica se não é só espaços em branco
-                              ? cards.roman_name : 'Nome desconhecido'; //se for vdd usa o roman name, se for falso usa o nome desconhecido
+    fruitOriginalName.textContent = cards.roman_name //verifica se existe
+        && cards.roman_name.trim() !== ''  //verifica se não é só espaços em branco
+        ? cards.roman_name : 'Nome desconhecido'; //se for vdd usa o roman name, se for falso usa o nome desconhecido
 
-fruitCommumName.textContent = cards.name
-                            && cards.name.trim() !== '' 
-                            ? cards.name : 'Nome comum não conhecido';
+    fruitCommumName.textContent = cards.name
+        && cards.name.trim() !== ''
+        ? cards.name : 'Nome comum não conhecido';
 
     divCard.append(imgFruit, fruitOriginalName, fruitCommumName)
 

@@ -43,17 +43,17 @@ h1 {
     color: #8f0000;
 }
 
-main {
-    flex: 1;
-    /* ocupa o espaço entre o header e footer */
-    overflow-y: auto;
-    /* ativa o scroll vertical */
+/********************MAIN DO INDEX.HTML********************************/
+.catalog {
+    flex: 1; /* ocupa o espaço entre o header e footer */
+    overflow-y: auto; /* ativa o scroll vertical */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
     background-color: #F4EAD5;
     gap: 1rem;
+    width: 100vw;
 }
 
 input {
@@ -109,6 +109,69 @@ input {
 .card .fruitCommunName {
     font-size: 1rem;
 }
+
+/********************MAIN DO BOUNTIES.HTML********************************/
+.bounties {
+    height: 82%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F4EAD5;
+}
+
+.list {
+    overflow-y: auto; /* ativa o scroll vertical */
+    height: 80%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #6C8EAD;
+}
+.list h1{
+    font-size: 4rem;    
+}
+
+.subTitles {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: #DADADA;
+}
+.subTitles h2{
+    font-size: 3rem;
+}
+
+.listWithDados {
+    width: 100%;
+    background-image: url(./img/background.webp); /*transforma imagem em background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rowTop100{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px black;
+    font-size: 2rem;
+    background-color: rgba(31, 76, 224, 0.247);
+}
+.numberMoreName{
+    display: flex;
+    width: 86%;
+    gap: 2rem;
+    padding-left: 32px;
+}
+.bounty{
+    width: 24%;
+}
+
+
 
 footer {
     height: 8%;
