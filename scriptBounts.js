@@ -46,7 +46,7 @@ function top100(dados) {
     // Filtra apenas personagens com bounty válido
     const withBounty = dados.filter(personagem => personagem.bounty && personagem.bounty.trim() !== '')
 
-    // Converte a string de bounty para número
+    // Converte a string do bounty para número
     const parsed = withBounty.map(personagem => ({
         ...personagem,
         bountyValue: Number(personagem.bounty.replaceAll('.', '').replaceAll(',', '').trim())

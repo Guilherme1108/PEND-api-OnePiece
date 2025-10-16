@@ -45,8 +45,10 @@ h1 {
 
 /********************MAIN DO INDEX.HTML********************************/
 .catalog {
-    flex: 1; /* ocupa o espaço entre o header e footer */
-    overflow-y: auto; /* ativa o scroll vertical */
+    flex: 1;
+    /* ocupa o espaço entre o header e footer */
+    overflow-y: auto;
+    /* ativa o scroll vertical */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,7 +70,7 @@ input {
 
 .cards-container {
     height: 100%;
-    width: 100%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,7 +90,6 @@ input {
     gap: 8px;
     background-color: #FDF6EC;
     box-shadow: 0 0 15px 7px rgba(0, 0, 0, 0.3);
-    /* direita, baixo, blur, cor */
 }
 
 .card:hover img {
@@ -122,14 +123,17 @@ input {
 
 .list {
     height: 80%;
-    width: 60%;
+    width: 90%;
     display: flex;
     align-items: center;
     flex-direction: column;
     background-color: #6C8EAD;
+    box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.3);
 }
-.list h1{
-    font-size: 4rem;    
+
+.list h1 {
+    font-size: 4rem;
+    text-align: center;
 }
 
 .subTitles {
@@ -140,26 +144,31 @@ input {
     padding-right: 100px;
     background-color: #DADADA;
 }
-.subTitles h2{
+
+.subTitles h2 {
     font-size: 3rem;
 }
 
 .listWithDados {
     width: 100%;
     background-color: #FDF6EC;
-    overflow-y: auto; /* ativa o scroll vertical */
+    overflow-y: auto;
+    /* ativa o scroll vertical */
 }
-.rowTop100{
+
+.rowTop100 {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: solid 1px black;
     font-size: 1.5rem;
 }
+
 .numberMoreName {
     display: flex;
     align-items: center;
-    width: 70%;
+    width: 80%;
     gap: 0.5rem;
 }
 
@@ -168,8 +177,12 @@ input {
     text-align: center;
 }
 
-.bounty{
-    width: 30%;
+.name {
+    width: 400px;
+}
+
+.bounty {
+    width: 20%;
 }
 
 footer {
@@ -182,9 +195,126 @@ footer {
     background-color: #E4DCCF;
 }
 
-@media (max-width: 750px) {
+/* RESPONSIVIDADE HEADER E FOOTER */
+@media (max-width: 820px) {
+
+    header {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .options a {
+        font-size: 1.5rem;
+    }
+
     input {
         width: 300px;
         font-size: 1.5rem;
     }
+}
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .options a {
+        font-size: 1rem;
+    }
+}
+
+
+/************************************************************************************8*/
+
+/* RESPONSIVIDADE MAIN DO CATALOGO */
+@media (max-width: 630px) {
+    .cards-container {
+        width: 100%;
+        gap: 30px;
+    }
+
+    .card {
+        height: 180px;
+        width: 180px;
+        gap: 8px;
+    }
+
+    .card img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .card:hover img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .card .fruitOriginalName {
+        font-size: 1rem;
+    }
+
+    .card .fruitCommunName {
+        font-size: 0.8rem;
+    }
+}
+
+/* RESPONSIVIDADE DO BOUNTIES */
+@media (max-width: 1000px) {
+
+    .list h1 {
+        font-size: 2.8rem;
+    }
+
+    .subTitles {
+        justify-content: space-around;
+        gap: 300px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+
+    .subTitles h2 {
+        font-size: 2rem;
+    }
+
+    .rowTop100 {
+        justify-content: space-around;
+        font-size: 1rem;
+    }
+
+    .numberMoreName {
+        gap: 0.1rem;
+    }
+
+    .number {
+        width: 50px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 580px) {
+
+    .subTitles {
+        justify-content: space-between;
+        gap: 0px;
+    }
+
+    .rowTop100 {
+        justify-content: space-around;
+        font-size: 1rem;
+    }
+
+    .numberMoreName {
+        width: 70%;
+        gap: 0.1rem;
+    }
+
+    .bounty {
+    width: 28%;
+}
+
 }
