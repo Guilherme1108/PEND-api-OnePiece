@@ -24,7 +24,7 @@ function criarCards(cards) {
     fruitOriginalName.classList.add('fruitOriginalName')
     fruitCommumName.classList.add('fruitCommunName')
 
-        imgFruit.src = cards.filename
+        imgFruit.src = `https://corsproxy.io/?url=${cards.filename}`
     // Se a imagem não carregar vai colocar uma padrão
     imgFruit.onerror = () => {
         imgFruit.src = './img/imgNotFound.png';
