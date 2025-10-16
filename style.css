@@ -154,17 +154,22 @@ input {
     display: flex;
     justify-content: space-between;
     border: solid 1px black;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
-.numberMoreName{
+.numberMoreName {
     display: flex;
-    text-align: start;
-    width: 80%;
-    gap: 2rem;
-    padding-left: 32px;
+    align-items: center;
+    width: 70%;
+    gap: 0.5rem;
 }
+
+.number {
+    width: 100px;
+    text-align: center;
+}
+
 .bounty{
-    width: 20%;
+    width: 30%;
 }
 
 footer {

@@ -15,6 +15,8 @@ function criarLista(list, posicao) {
     divRow.classList.add('rowTop100')
     divNumberWithName.classList.add('numberMoreName')
 
+    number.classList.add('number')
+    name.classList.add('name')
     bounty.classList.add('bounty')
 
     number.textContent = posicao + 1
