@@ -1,7 +1,7 @@
 'use strict'
 
 // URL da API buscando frutas
-const API_URL = 'https://corsproxy.io/?url=https://api.api-onepiece.com/v2/fruits/en'
+const API_URL = 'https://api.api-onepiece.com/v2/fruits/en'
 
 // Seleciona o elemento main
 const mainCatalog = document.getElementById('catalog')
@@ -13,6 +13,7 @@ mainCatalog.appendChild(cardsContainer)
 
 //Criando os cards
 function criarCards(cards) {
+
     const divCard = document.createElement('div')
 
     const imgFruit = document.createElement('img')
@@ -24,7 +25,7 @@ function criarCards(cards) {
     fruitOriginalName.classList.add('fruitOriginalName')
     fruitCommumName.classList.add('fruitCommunName')
 
-        imgFruit.src = `https://corsproxy.io/?url=${cards.filename}`
+    imgFruit.src = `${cards.filename}`
     // Se a imagem não carregar vai colocar uma padrão
     imgFruit.onerror = () => {
         imgFruit.src = './img/imgNotFound.png';
@@ -40,8 +41,40 @@ function criarCards(cards) {
 
     divCard.append(imgFruit, fruitOriginalName, fruitCommumName)
 
+    // Quando clicar no card, abre o modal com detalhes
+    divCard.addEventListener('click', () => {
+        abrirModal(cards);
+    });
+
     return divCard
 }
+
+// Função para abrir o modal com detalhes da fruta
+function abrirModal(fruit) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+
+    modalContent.innerHTML = `
+        <h2>${fruit.name || 'Nome não conhecido'}</h2>
+        <img src="https://corsproxy.io/?url=${fruit.filename}" 
+             onerror="this.src='./img/imgNotFound.png';">
+        <p><strong>Original Name:</strong> ${fruit.roman_name || 'Desconhecido'}</p>
+        <p><strong>Type:</strong> ${fruit.type || 'Tipo não informado'}</p>
+        <p><strong>Description:</strong> ${fruit.description || 'Sem descrição disponível.'}</p>
+        <button id="close-modal">Fechar</button>
+    `;
+
+    modal.classList.remove('hidden');
+
+    document.getElementById('close-modal').addEventListener('click', fecharModal);
+}
+
+// Função para fechar o modal
+function fecharModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.add('hidden');
+}
+
 
 // Função para carregar as frutas da API
 async function carregarCards() {
@@ -52,6 +85,7 @@ async function carregarCards() {
         fruits.forEach(fruit => { //percorre a o objeto
             const card = criarCards(fruit)
             cardsContainer.appendChild(card) //adiciona o card dentro do container
+
         })
     } catch (error) {
         console.error('Erro ao carregar frutas:', error)
