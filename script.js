@@ -1,7 +1,7 @@
 'use strict'
 
 // URL da API buscando frutas
-const API_URL = 'https://api.api-onepiece.com/v2/fruits/en'
+const API_URL = 'https://corsproxy.io/?url=https://api.api-onepiece.com/v2/fruits/en'
 
 // Seleciona o elemento main
 const mainCatalog = document.getElementById('catalog')
@@ -25,7 +25,7 @@ function criarCards(cards) {
     fruitOriginalName.classList.add('fruitOriginalName')
     fruitCommumName.classList.add('fruitCommunName')
 
-    imgFruit.src = `${cards.filename}`
+    imgFruit.src = `https://corsproxy.io/?url=${cards.filename}`
     // Se a imagem não carregar vai colocar uma padrão
     imgFruit.onerror = () => {
         imgFruit.src = './img/imgNotFound.png';
@@ -55,12 +55,12 @@ function abrirModal(fruit) {
     const modalContent = document.getElementById('modal-content');
 
     modalContent.innerHTML = `
-        <h2>${fruit.name || 'Nome não conhecido'}</h2>
+        <h2>${fruit.name}</h2>
         <img src="https://corsproxy.io/?url=${fruit.filename}" 
              onerror="this.src='./img/imgNotFound.png';">
-        <p><strong>Original Name:</strong> ${fruit.roman_name || 'Desconhecido'}</p>
-        <p><strong>Type:</strong> ${fruit.type || 'Tipo não informado'}</p>
-        <p><strong>Description:</strong> ${fruit.description || 'Sem descrição disponível.'}</p>
+        <p><strong>Original Name:</strong> ${fruit.roman_name}</p>
+        <p><strong>Type:</strong> ${fruit.type}</p>
+        <p><strong>Description:</strong> ${fruit.description}</p>
         <button id="close-modal">Fechar</button>
     `;
 
