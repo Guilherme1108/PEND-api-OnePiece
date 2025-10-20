@@ -124,23 +124,31 @@ input {
     z-index: 999;
 }
 
-#modal.hidden {
+.modal.hidden {
     display: none;
 }
 
 #modal-content {
     border-radius: 16px;
     padding: 20px;
-    max-width: 400px;
+    max-width: 600px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     background: #FDF6EC;
 }
 
+#modal-content h2{
+    font-size: 2rem;
+}
+
 #modal-content img {
-    height: 240px;
-    width: 240px;
+    height: 300px;
+    width: 300px;
     margin-bottom: 10px;
+}
+
+#modal-content p{
+    font-size: 1.5rem;
 }
 
 #modal-content button {
@@ -272,7 +280,7 @@ footer {
 }
 
 
-/************************************************************************************8*/
+/*************************************************************************************/
 
 /* RESPONSIVIDADE MAIN DO CATALOGO */
 @media (max-width: 630px) {
@@ -303,6 +311,27 @@ footer {
 
     .card .fruitCommunName {
         font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    #modal-content {
+        padding: 20px;
+        max-width: 400px;
+    }
+    
+    #modal-content h2{
+        font-size: 2rem;
+    }
+    
+    #modal-content img {
+        height: 240px;
+        width: 240px;
+        margin-bottom: 10px;
+    }
+    
+    #modal-content p{
+        font-size: 1rem;
     }
 }
 
