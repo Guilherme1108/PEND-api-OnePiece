@@ -124,7 +124,7 @@ input {
     z-index: 999;
 }
 
-.modal.hidden {
+#modal.hidden {
     display: none;
 }
 
