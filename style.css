@@ -92,18 +92,17 @@ input {
     box-shadow: 0 0 15px 7px rgba(0, 0, 0, 0.3);
 }
 
-.card:hover img {
-    height: 125px;
-    width: 125px;
-}
-
 .card img {
     height: 100px;
     width: 100px;
     transition: 0.5s ease;
 }
 
-.card .fruitOriginalName {
+.card:hover img {
+    transform: scale(1.2);
+}
+
+.card .fruitOriginalName{
     font-size: 1.5rem;
 }
 
