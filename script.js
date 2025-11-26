@@ -75,14 +75,16 @@ function fecharModal() {
     modal.classList.add('hidden');
 }
 
+let allFruits = [] //Variavel global para guardar as frutas se necessário
+
 
 // Função para carregar as frutas da API
 async function carregarCards() {
     try {
         const response = await fetch(API_URL) //faz uma requsição para a API
-        const fruits = await response.json() //converte o json paraa objeto
+        allFruits = await response.json() //converte o json paraa objeto
 
-        fruits.forEach(fruit => { //percorre a o objeto
+        allFruits.forEach(fruit => { //percorre a o objeto
             const card = criarCards(fruit)
             cardsContainer.appendChild(card) //adiciona o card dentro do container
 
@@ -92,4 +94,28 @@ async function carregarCards() {
     }
 }
 
+function pesquisarFruta() {
+    const input = document.getElementById('pesquisa')
+
+    input.addEventListener('input', () => {
+        const valor = input.value.toLowerCase()
+
+        cardsContainer.innerHTML = ''
+
+        //variave para guardar as frutas que passarem no filtro
+    const filtrados = allFruits.filter(fruit => {
+        const nome = fruit.name ? fruit.name.toLowerCase() : ''
+        const nomeOriginal = fruit.roman_name ? fruit.roman_name.toLowerCase() : ''
+        const busca = valor.toLowerCase()
+
+        return nome.includes(busca) || nomeOriginal.includes(busca)
+    })
+
+        filtrados.forEach(fruit => {
+            cardsContainer.appendChild(criarCards(fruit))
+        })
+    })
+}
+
 carregarCards()
+pesquisarFruta()
